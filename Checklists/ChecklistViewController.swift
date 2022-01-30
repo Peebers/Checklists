@@ -86,7 +86,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureText( for cell: UITableViewCell,
                         with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
-        label.text = item.text
+//        label.text = item.text
+        label.text = "\(item.text)"
     }
     //MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -105,35 +106,5 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
-    // MARK: - Data Persistence
-    
-//    func documentDirectory() -> URL {
-//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        return paths[0]
-//    }
-//    func dataFilePath() -> URL {
-//        return documentDirectory().appendingPathComponent("Checklists.plist")
-//    }
-//    func saveChecklistItems() {
-//        let encoder = PropertyListEncoder()
-//        do {
-//            let data = try encoder.encode(checklist.items)
-//            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-//        }
-//        catch {
-//            print("Error encoding item array: \(error.localizedDescription)")
-//        }
-//    }
-//    func loadChecklistItems() {
-//        let path = dataFilePath()
-//        if let data = try? Data(contentsOf: path) {
-//            let decoder = PropertyListDecoder()
-//            do {
-//                checklist.items = try decoder.decode([ChecklistItem].self, from: data)
-//            } catch {
-//                print("Error decoding item array: \(error.localizedDescription)")
-//            }
-//        }
-//    }
 }
 
